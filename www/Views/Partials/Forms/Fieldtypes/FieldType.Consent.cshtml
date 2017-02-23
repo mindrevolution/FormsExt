@@ -1,0 +1,38 @@
+@model Umbraco.Forms.Mvc.Models.FieldViewModel
+@{
+    var settings = Model.AdditionalSettings;
+    bool hasPrivacyStatement = settings.ContainsKey("PrivacyStatement") && (settings["PrivacyStatement"].InvariantEquals("true"));
+}
+<div class="forms-consent">
+    <div class="row forms-consent-primary">
+        @if (Model.Mandatory)
+        {
+            // only show checkbox if checking it is mandatory!
+            <div class="col-xs-1 forms-consent-checkbox">
+                <input type="checkbox" name="@Model.Name" id="@Model.Id" style="width:auto;margin-right:10px;"
+                       @if (Model.Mandatory)
+                       { <text> data-val="true" data-val-requiredcb="@Model.RequiredErrorMessage" </text>    }
+                       @if (Model.ContainsValue(true) || Model.ContainsValue("true") || Model.ContainsValue("on"))
+                       { <text> checked="checked" </text>    } />
+            </div>
+        }
+        <div class="col-xs-11 forms-consent-text">
+            @if (!string.IsNullOrEmpty(settings["Text"]))
+            {
+                <label for="@Model.Name" style="text-transform:none;white-space: pre-line;"><p class="forms-consent-text">@settings["Text"]</p></label>
+            }
+
+            @if (hasPrivacyStatement)
+            {
+                <label for="@Model.Name" style="text-transform:none;" class="forms-consent-privacystatement">
+                    <p>
+                        Ihre Angaben werden nicht an Dritte weitergegeben. Hier finden Sie unsere
+                        <a href="/de/datenschutz" target="_blank">Datenschutzerklärung</a> mit allen Details.
+                    </p>
+                </label>
+            }
+
+        </div>
+    </div>
+
+</div>
