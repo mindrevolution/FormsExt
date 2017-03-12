@@ -17,6 +17,7 @@ FormsExt extends Umbraco Forms with Fieldtypes and Workflows, especially newslet
 	git clone https://github.com/mindrevolution/FormsExt.git
 	cd FormsExt
 	.\build.cmd
+	```
 
 If you prefer to have a local test site and easy development, drop a current Umbraco release into */www*.
 
