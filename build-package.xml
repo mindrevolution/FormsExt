@@ -46,14 +46,12 @@
 <Target Name="PrepairFiles" DependsOnTargets="Compile">
     <ItemGroup>
         <BinFiles Include="$(RootDir)\src\bin\Debug\mindrevolution.FormsExt.dll" />
-        <!--<BinFiles Include="$(RootDir)\src\bin\Debug\mindrevolution.ContentTracking.pdb" />-->
-        <AppPluginFiles Include="$(RootDir)\www\App_Plugins\mindrevolution.FormsExt\*.*" />
-        <!--<ViewsFiles Include="$(RootDir)\www\Views\Partials\mindrevolution.NewsletterIntegrations\*.*" />-->
+        <FormsBackofficeFiles Include="$(RootDir)\www\App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\Consent.html" />
         <ViewsFiles Include="$(RootDir)\www\Views\Partials\Forms\Fieldtypes\FieldType.Consent.cshtml" />
         <PackageFile Include="$(RootDir)\Package.xml" />
     </ItemGroup>
     <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildDir)\bin" />
-    <!--<Copy SourceFiles="@(AppPluginFiles)" DestinationFolder="$(BuildDir)\App_Plugins\mindrevolution.FormsExt" />-->
+    <Copy SourceFiles="@(FormsBackofficeFiles)" DestinationFolder="$(BuildDir)\App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes" />
     <Copy SourceFiles="@(ViewsFiles)" DestinationFolder="$(BuildDir)\Views\Partials\Forms\Fieldtypes" />
     <Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildDir)" />
 </Target>
