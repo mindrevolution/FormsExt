@@ -20,7 +20,9 @@ FormsExt extends Umbraco Forms with Fieldtypes and Workflows, especially newslet
 
 If you prefer to have a local test site and easy development, drop a current Umbraco release into */www*.
 
+
 ---
+
 
 ## Umbraco package (repository)
 
@@ -29,14 +31,24 @@ It's not there yet, but the build generates an Umbraco package already, so feel 
 > <https://github.com/mindrevolution/FormsExt/releases/new>
 
 
+---
+
+
 ## Contributing to this project
 
 Anyone and everyone is welcome to contribute. Until we have contribution guidelines in place, please [get in touch](#contact) so we can align things. Thanks!
+
+
+---
+
 
 ## <a name="contact"></a>Contact
 
 * Twitter [@esn303](https://twitter.com/esn303)
 * [Raise an issue](https://github.com/mindrevolution/FormsExt/issues) on GitHub
+
+
+---
 
 
 ## License
