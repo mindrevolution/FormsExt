@@ -29,7 +29,7 @@ If you prefer to have a local test site and easy development, drop a current Umb
 
 It's not there yet, but the build generates an Umbraco package already, so feel free to pick that up on the releases page.
 
-> <https://github.com/mindrevolution/FormsExt/releases/new>
+> <https://github.com/mindrevolution/FormsExt/releases>
 
 
 ---
