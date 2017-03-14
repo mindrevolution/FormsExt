@@ -14,7 +14,7 @@
 ****************************************
 -->
 <PropertyGroup>
-<PackageVersion>0.1.0</PackageVersion>
+<PackageVersion>0.2.0</PackageVersion>
 </PropertyGroup>
  
 <PropertyGroup>
@@ -47,12 +47,14 @@
     <ItemGroup>
         <BinFiles Include="$(RootDir)\src\bin\Debug\mindrevolution.FormsExt.dll" />
         <FormsBackofficeFiles Include="$(RootDir)\www\App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes\Consent.html" />
-        <ViewsFiles Include="$(RootDir)\www\Views\Partials\Forms\Fieldtypes\FieldType.Consent.cshtml" />
+        <FormsViewsFiles Include="$(RootDir)\www\Views\Partials\Forms\Fieldtypes\FieldType.Consent.cshtml" />
+        <FormsExtViewsFiles Include="$(RootDir)\www\Views\Partials\FormsExt\DownloadsList.cshtml" />
         <PackageFile Include="$(RootDir)\Package.xml" />
     </ItemGroup>
     <Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildDir)\bin" />
     <Copy SourceFiles="@(FormsBackofficeFiles)" DestinationFolder="$(BuildDir)\App_Plugins\UmbracoForms\Backoffice\Common\FieldTypes" />
-    <Copy SourceFiles="@(ViewsFiles)" DestinationFolder="$(BuildDir)\Views\Partials\Forms\Fieldtypes" />
+    <Copy SourceFiles="@(FormsViewsFiles)" DestinationFolder="$(BuildDir)\Views\Partials\Forms\Fieldtypes" />
+    <Copy SourceFiles="@(FormsExtViewsFiles)" DestinationFolder="$(BuildDir)\Views\Partials\FormsExt" />
     <Copy SourceFiles="@(PackageFile)" DestinationFolder="$(BuildDir)" />
 </Target>
  
