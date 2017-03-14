@@ -17,16 +17,16 @@ exclude-result-prefixes="xsl msxsl user umbraco.library FormsExt">
 
   <xsl:template match="/">
 
-    <xsl:variable name="optin">
-      <xsl:value-of select="$records//uniqueId"/>
-    </xsl:variable>
     <xsl:variable name="email">
       <xsl:value-of select="$records//fields/*[caption='E-Mail']//value"/>
     </xsl:variable>
     <xsl:variable name="tracking">
       <xsl:value-of select="FormsExt:GenerateTrackingToken($email)"/>
     </xsl:variable>
-    <xsl:variable name="optinlink">http://localhost:56857/umbraco/FormsExt/NewsletterOptin/activate?optin=<xsl:value-of select="$optin"/>&amp;t=<xsl:value-of select="$tracking"/></xsl:variable>
+    <xsl:variable name="downloadkey">
+      <xsl:value-of select="$records//fields/*[caption='DownloadKey']//value"/>
+    </xsl:variable>
+    <xsl:variable name="downloadlink">http://localhost:56857/umbraco/FormsExt/Download/Media?key=<xsl:value-of select="$downloadkey"/>&amp;t=<xsl:value-of select="$tracking"/></xsl:variable>
 
     <body style="font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif; font-size: 16px; line-height: 20px;">
 
@@ -35,12 +35,12 @@ exclude-result-prefixes="xsl msxsl user umbraco.library FormsExt">
           <td align="center">
 
             <p style="font-size:120px;">
-              <a href="{$optinlink}" style="text-decoration:none;color:#e2e2e2;">👍</a>
+              <a href="{$downloadlink}" style="text-decoration:none;color:#e2e2e2;">🌠</a>
             </p>
 
-            <h3>Please activate your email address.</h3>
+            <h3>Hier ist Ihr Download!</h3>
             <p>
-              Thanks you for signing up to our newsletter. Please activate your subscription with a simple click:
+              Vielen Dank für Ihr Interesse. Wenn Sie Anregungen oder Fragen haben, antworten Sie infach auf diese E-Mail.
             </p>
 
             <table width="80%" style="max-width:80%;font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;">
@@ -52,8 +52,8 @@ exclude-result-prefixes="xsl msxsl user umbraco.library FormsExt">
                         <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto;">
                           <tr>
                             <td align="center" bgcolor="#ffcc00" style="min-width:180px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;color:#ffffff;">
-                              <a class="msoAltFont" href="{$optinlink}" style="padding: 9px 12px; mso-padding-alt: 9px 12px; min-width:180px; display: block;text-decoration: none;border:0; text-align: center; text-transform:uppercase; font-weight: 600;font-size: 16px; color: #ffffff; background: #ffcc00; border: 1px solid #ffcc00;-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; mso-line-height-rule: exactly; line-height:18px;">
-                                activate <xsl:value-of select="$email"/>
+                              <a class="msoAltFont" href="{$downloadlink}" style="padding: 9px 12px; mso-padding-alt: 9px 12px; min-width:180px; display: block;text-decoration: none;border:0; text-align: center; text-transform:uppercase; font-weight: 600;font-size: 16px; color: #ffffff; background: #ffcc00; border: 1px solid #ffcc00;-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; mso-line-height-rule: exactly; line-height:18px;">
+                                DOWNLOAD
                               </a>
                             </td>
                           </tr>
@@ -66,7 +66,7 @@ exclude-result-prefixes="xsl msxsl user umbraco.library FormsExt">
             </table>
 
             <p style="color:#333;font-size:10px;">
-              By confirming your e-mail address, you agree that mindrevolution GmbH will send you regular information on the subject area of B2B marketing and their company by e-mail. You may revoke your consent at any time to mindrevolution GmbH via the contact details below or click on the unsubscribe link in the sent messages.
+              Lorem ipsum dolor ...
             </p>
 
 

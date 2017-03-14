@@ -38,7 +38,7 @@ namespace FormsExt.Workflows.Members
                 // - get the email value and subscribe
                 string email = record.GetRecordField(EmailFieldName).ValuesAsString();
 
-                if (Helper.IsValidEmail(email))
+                if (Helpers.Net.IsValidEmail(email))
                 {
                     IMemberService members = ApplicationContext.Current.Services.MemberService;
                     IMember member = null;
@@ -54,7 +54,7 @@ namespace FormsExt.Workflows.Members
                         // - generate tracking token if there is a prop on the member for it
                         if (member.HasProperty("trackingToken"))
                         {
-                            member.SetValue("trackingToken", Xslt.Library.GenerateTrackingToken(email));
+                            member.SetValue("trackingToken", Helpers.Tokens.GenerateTrackingToken(email));
                             members.Save(member);
                         }
                     }

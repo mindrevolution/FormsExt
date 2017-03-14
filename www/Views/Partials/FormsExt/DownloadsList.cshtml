@@ -1,0 +1,19 @@
+@using NewsletterStudio;
+@using NewsletterStudio.Infrastucture.Data;
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{ 
+    string t = Request.QueryString["t"];
+    string key = Request.QueryString["key"];
+
+    List<IMedia> downloads = FormsExt.Nodes.Media.GetDownloads(key, t);
+    if (downloads.Any())
+    {
+        <ul>
+            @foreach (IMedia media in downloads)
+            {
+                <li><a href="/umbraco/FormsExt/Download/MediaById?id=@media.Id&t=@t">@media.Name</a></li>
+            }
+        </ul>
+    }
+}
