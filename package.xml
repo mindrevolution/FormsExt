@@ -13,7 +13,7 @@
 			</requirements>
 		</package>
 		<author>
-			<name>Marc Stöcker</name>
+			<name>mindrevolution GmbH</name>
 			<website>https://mindrevolution.com</website>
 		</author>
 		<readme><![CDATA[FormsExt extends Umbraco Forms with Fieldtypes and Workflows.]]></readme>
